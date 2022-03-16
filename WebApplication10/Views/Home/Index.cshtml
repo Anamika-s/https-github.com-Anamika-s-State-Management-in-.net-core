@@ -1,0 +1,26 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if(!string.IsNullOrWhiteSpace(Model))
+    {
+        @:<div> Welcome back @Model  </div>
+        @Html.ActionLink("Remove Cookie", "DeleteCookie");
+    }
+    else
+    {
+        @:
+     <form asp-action="Index">
+         <span>  You are a new user </span> <br />
+         <label> Plesae enter yopur name </label>
+
+@Html.TextArea("username")
+     <div class="form-group">
+         <input type="submit" value="Update" class="btn  btn-primary"/>"
+     </div>
+     </form>
+    }
+</div>
